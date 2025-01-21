@@ -1,4 +1,4 @@
-import img from '../assets/profile1.jpeg';
+import img from '../assets/profile2.jpg';
 
 const Card2 = () => {
     const name = 'Jane Doe';
