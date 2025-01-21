@@ -1,17 +1,11 @@
+import "../styles/Navbar.css";
+
 const Navbar = () => {
     return (
         <nav className="navbar">
-            <ul>
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Profiles</a>
-                </li>
-            </ul>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Profiles</a>
         </nav>
     );
 }

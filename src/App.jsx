@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Card1 from "./components/Card1";
