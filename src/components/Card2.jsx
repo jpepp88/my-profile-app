@@ -1,4 +1,5 @@
 import img from '../assets/profile2.jpg';
+import "../styles/Cards.css";
 
 const Card2 = () => {
     const name = 'Jane Doe';
