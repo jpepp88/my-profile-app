@@ -1,35 +1,46 @@
 import "./styles/App.css";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
-import Card1 from "./components/Card1";
-import Card2 from "./components/Card2";
+import Card from "./components/Card";
+import img_man from "./assets/profile1.jpeg";
+import img_woman from "./assets/profile2.jpg";
+import Wrapper from "./components/Wrapper";
 
 
 const App = () => {
+    const profiles =[
+        {
+            img: img_man,
+            name: 'John Doe',
+            title: 'Software Engineer',
+            email: 'a@a.com'
+        },
+        {
+            img: img_woman,
+            name: 'Jane Doe',
+            title: 'Product Designer',
+            email: 'b@b.com'
+        }
+    ]
     return (
         <>
             <header>
                 <Navbar/>
             </header>
             <main>
-                <div className="section">
-                    <div className="container">
-                        <h1>Profile App</h1>
+                <Wrapper>
+                    <h1>Profile App</h1>
+                </Wrapper>
+                <Wrapper>
+                    <About />
+                </Wrapper>
+                <Wrapper>
+                    <div className="profile-cards">
+                        {profiles.map((profile) => (
+                            <Card key={profile.email} {...profile} />
+                        ))};
                     </div>
-                </div>
-                <div className="section">
-                    <div className="container">
-                        <About />
-                    </div>
-                </div>
-                <div className="section">
-                    <div className="container">
-                        <div className="profile-cards">
-                        <Card1 />
-                        <Card2 />
-                        </div>
-                    </div>
-                </div>
+                </Wrapper>
             </main>
             
         </>
