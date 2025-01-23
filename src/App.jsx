@@ -5,6 +5,7 @@ import Card from "./components/Card";
 import img_man from "./assets/profile1.jpeg";
 import img_woman from "./assets/profile2.jpg";
 import Wrapper from "./components/Wrapper";
+import {useState} from "react";
 
 
 const App = () => {
@@ -20,8 +21,12 @@ const App = () => {
             name: 'Jane Doe',
             title: 'Product Designer',
             email: 'b@b.com'
-        }
-    ]
+        },
+    ];
+    const [clicked, setClicked] = useState(false);
+    const handleClick = () => {
+        setClicked(!clicked);
+    };
     return (
         <>
             <header>
@@ -30,6 +35,9 @@ const App = () => {
             <main>
                 <Wrapper>
                     <h1>Profile App</h1>
+                    <button onClick={handleClick}>
+                        {clicked ? "Click me" : "Clicked"}
+                    </button>
                 </Wrapper>
                 <Wrapper>
                     <About />
