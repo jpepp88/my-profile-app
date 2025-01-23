@@ -2,4 +2,9 @@ nav a {
     color: white;
     text-decoration: none;
     padding: 10px;
+    font-size: 30px;
+}
+header {
+    padding: 40px;
+    background: #006400;
 }
