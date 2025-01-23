@@ -46,7 +46,7 @@ const App = () => {
                     <div className="profile-cards">
                         {profiles.map((profile) => (
                             <Card key={profile.email} {...profile} />
-                        ))};
+                        ))}
                     </div>
                 </Wrapper>
             </main>
