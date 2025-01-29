@@ -15,7 +15,7 @@ const Card = ({img, name, title, email}) => {
         </div>
     )
 }
-Card.PropTypes = {
+Card.propTypes = {
     img: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     title: PropTypes.string,
