@@ -5,4 +5,26 @@
   align-items: center;
 }
 
-.navbar
+.navbar.section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+}
+
+.navbar ul li {
+  margin-right: 1rem;
+}
+
+.navbar ul li a {
+  color: var(--button-text-color);
+}
+
+.navbar ul li a:hover {
+  color: var(--link-hover-color);
+}
