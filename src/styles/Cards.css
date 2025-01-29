@@ -1,19 +1,17 @@
 .profile-card {
-  background-color: var(--primary-background-color);
-  border-radius: var(--border-radius);
+  background-color: #f7f7f7;
+  border-radius: 8px;
   padding: 1rem;
   text-align: center;
   width: 200px;
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0.75rem;
 }
 
 /* Image container */
 .profile-card_img {
-  width: 100px; /* Set fixed width and height */
-  height: 100px;
-  padding-top: 100%; /* Maintain aspect ratio */
-  border-radius: 50%; /* Circular shape */
+  width: 120px; /* Set fixed width and height */
+  height: 120px; /* Maintain aspect ratio */
   margin: 0 auto 1rem auto; /* Center image with space below */
   position: relative;
   overflow: hidden;
@@ -21,8 +19,7 @@
 
 /* Image styling */
 .profile-card_img img {
-  width: 100%;
-  height: 100%;
+  border-radius: 50%; /* Circular shape */
   position: absolute;
   top: 0;
   left: 0;
@@ -35,5 +32,5 @@ h3 {
 
 p {
   margin: 0;
-  color: var(--text-color);
+  color: #191a1a;
 }
