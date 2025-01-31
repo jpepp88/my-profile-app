@@ -47,6 +47,19 @@ const App = () => {
     },
   ];
 
+  //Variable to control the animation staus
+  const[animation, setAnimation] = useState(true);
+  const handleAnimation = () => {
+    setAnimation(false);
+  };
+
+  //Variable to store the mode state
+  const [mode, setMode] = useState("light");
+  //function to update the mode state
+  const handleModeChange = () => {
+    setMode(mode === "light" ? "dark" : "light");
+  };
+
   // get titles
   const titles = [...new Set(profiles.map((profile) => profile.title))];
 
@@ -55,18 +68,21 @@ const App = () => {
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
     console.log(event.target.value);
+    setAnimation(true);
   };
 
   const [search, setSearch] = useState("");
   //update the search on change of the input
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
+    setAnimation(true);
   };
 
   //clear the title and search
   const handleClear = () => {
     setTitle("");
     setSearch("");
+    setAnimation(true);
   };
 
   //filter the profiles based on the title
@@ -75,12 +91,17 @@ const App = () => {
       (title === "" || profile.title === title) &&
       profile.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  const buttonStyle = {
+    border: "1px solid #ccc"
+  };
+
   return (
     <>
       <header>
-        <Navbar />
+        <Navbar mode={mode} updateMode={handleModeChange}/>
       </header>
-      <main>
+      <main className={mode === "light" ? "light" : "dark"}>
         <Wrapper>
           <h1>Profile App</h1>
         </Wrapper>
@@ -113,11 +134,11 @@ const App = () => {
                 value={search}
               />
             </div>
-            <button onClick={handleClear}>Clear</button>
+            <button onClick={handleClear} style={buttonStyle}>Clear</button>
           </div>
           <div className="profile-cards">
             {filtedProfiles.map((profile) => (
-              <Card key={profile.email} {...profile} />
+              <Card key={profile.email} {...profile} animate={animation} updateAnimate = {handleAnimation}/>
             ))}
           </div>
         </Wrapper>

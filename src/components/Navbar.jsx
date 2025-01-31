@@ -1,8 +1,8 @@
-import "../styles/Navbar.css";
+import style from "../styles/Navbar.module.css";
 
-const Navbar = () => {
+const Navbar = ({mode, updateMode}) => {
     return (
-        <nav className="navbar">
+        <nav className={style["navbar"]}>
             <ul>
                 <li>
                     <a href="#">Home</a>
@@ -14,6 +14,9 @@ const Navbar = () => {
                     <a href="#">Profiles</a>
                 </li>
             </ul>
+            <button onClick={updateMode}>
+                {mode === "light" ? "Light Mode" : "Dark Mode"}
+            </button>
         </nav>
     );
 }
