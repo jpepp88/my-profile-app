@@ -70,7 +70,6 @@
     margin-top: 10px;
     text-align: center;
   }
-
 }
 @media screen and (max-width: var(--mobile)){ 
   .profile-form{

@@ -7,49 +7,63 @@ import Card from "./components/Card";
 import Wrapper from "./components/Wrapper";
 import { useState } from "react";
 import ProfileForm from "./components/ProfileForm";
+import { useEffect } from "react";
+import { use } from "react";
+
 
 const App = () => {
-  const profiles = [
-    {
-      img: image_man,
-      name: "John Doe",
-      title: "Software Engineer",
-      email: "a@a.com",
-    },
-    {
-      img: image_woman,
-      name: "Lily Smith",
-      title: "UX designer",
-      email: "b@a.com",
-    },
-    {
-      img: image_man,
-      name: "Bob Johnson",
-      title: "Web developer",
-      email: "c@a.com",
-    },
-    {
-      img: image_woman,
-      name: "Ava Smith",
-      title: "Web developer",
-      email: "d@a.com",
-    },
-    {
-      img: image_man,
-      name: "Tom Smith",
-      title: "Software Engineer",
-      email: "e@a.com",
-    },
-    {
-      img: image_woman,
-      name: "Eva Smith",
-      title: "Graphic designer",
-      email: "f@a.com",
-    },
-  ];
+  // const profiles = [
+  //   {
+  //     img: image_man,
+  //     name: "John Doe",
+  //     title: "Software Engineer",
+  //     email: "a@a.com",
+  //   },
+  //   {
+  //     img: image_woman,
+  //     name: "Lily Smith",
+  //     title: "UX designer",
+  //     email: "b@a.com",
+  //   },
+  //   {
+  //     img: image_man,
+  //     name: "Bob Johnson",
+  //     title: "Web developer",
+  //     email: "c@a.com",
+  //   },
+  //   {
+  //     img: image_woman,
+  //     name: "Ava Smith",
+  //     title: "Web developer",
+  //     email: "d@a.com",
+  //   },
+  //   {
+  //     img: image_man,
+  //     name: "Tom Smith",
+  //     title: "Software Engineer",
+  //     email: "e@a.com",
+  //   },
+  //   {
+  //     img: image_woman,
+  //     name: "Eva Smith",
+  //     title: "Graphic designer",
+  //     email: "f@a.com",
+  //   },
+  // ];
 
-  //Variable to control the animation staus
-  const[animation, setAnimation] = useState(true);
+  //Variable to store the animation state
+  const [profiles, setProfiles] = useState([]);
+  useEffect(() => {
+    fetch("https://web.ics.purdue.edu/~jeppert/profile-app/fetch-data.php")
+      .then((res) => res.json())
+      .then((data) => {
+        setProfiles(data);
+        console.log(data)
+      })
+  }, []);
+
+  const [animation, setAnimation] = useState(false);
+  //function to update the animation state
   const handleAnimation = () => {
     setAnimation(false);
   };
@@ -68,7 +82,6 @@ const App = () => {
   //update the title on change of the drowndrop
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
-    console.log(event.target.value);
     setAnimation(true);
   };
 
@@ -89,12 +102,11 @@ const App = () => {
   //filter the profiles based on the title
   const filtedProfiles = profiles.filter(
     (profile) =>
-      (title === "" || profile.title === title) &&
+     (title === "" || profile.title === title) &&
       profile.name.toLowerCase().includes(search.toLowerCase())
   );
-
   const buttonStyle = {
-    border: "1px solid #ccc"
+    border: "1px solid #ccc",
   };
 
   return (
@@ -110,7 +122,7 @@ const App = () => {
           <About />
         </Wrapper>
         <Wrapper>
-          <ProfileForm/>
+          <ProfileForm />
         </Wrapper>
         <Wrapper>
           <div className="filter-wrapper">
@@ -138,11 +150,18 @@ const App = () => {
                 value={search}
               />
             </div>
-            <button onClick={handleClear} style={buttonStyle}>Clear</button>
+            <button onClick={handleClear} style={buttonStyle}>
+              <span className="sr-only">Reset</span>
+            </button>
           </div>
           <div className="profile-cards">
             {filtedProfiles.map((profile) => (
-              <Card key={profile.email} {...profile} animate={animation} updateAnimate = {handleAnimation}/>
+              <Card
+                key={profile.id}
+                {...profile}
+                animate={animation}
+                updateAnimate={handleAnimation}
+              />
             ))}
           </div>
         </Wrapper>

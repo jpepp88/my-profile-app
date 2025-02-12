@@ -10,12 +10,12 @@
   }
 }
 .profile-card {
-  background-color:#f7f7f7;
-  border-radius: 8px;
+  background-color: var(--primary-background-color);
+  border-radius: var(--border-radius);
   padding: 1rem;
   text-align: center;
   width: 200px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);;
+  box-shadow: var(--box-shadow);
   height: 100%;
   margin: 0.75rem;
   &.is-entering {
@@ -43,7 +43,7 @@
   .profile-card_content{
     p {
       margin: 0;
-      color: #191a1a;
+      color: var(--text-color);
     }
   }
 
