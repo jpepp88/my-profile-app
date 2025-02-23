@@ -3,6 +3,7 @@ import Wrapper from "../components/Wrapper";
 import { useState } from "react";
 import { useEffect } from "react";
 import styles from "../styles/home.module.css";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [titles, setTitles] = useState([]);
@@ -80,13 +81,14 @@ const HomePage = () => {
           />
         </div>
         <button onClick={handleClear} style={buttonStyle}>
-          <span className="sr-only">Reset</span>
-          <p>Reset</p>
+          <span>Reset</span>
         </button>
       </div>
       <div className={styles["profile-cards"]}>
         {profiles.map((profile) => (
+          <Link to={`/profile/${profile.id}`} key={profile.id}>
           <Card key={profile.id} {...profile} />
+          </Link>
         ))}
       </div>
       {count === 0 && <p>No profiles found!</p>}
