@@ -14,12 +14,12 @@ import { useContext } from "react";
 
 const App = () => {
   
-  const { mode, handleModeChange } = useContext(ModeContext);
+  const { mode } = useContext(ModeContext);
 
   return (
     <HashRouter>
       <header>
-        <Navbar mode={mode} updateMode={handleModeChange} />
+        <Navbar />
       </header>
       <main className={mode === "light" ? "light" : "dark"}>
         <Routes>

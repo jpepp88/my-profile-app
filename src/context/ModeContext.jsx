@@ -2,18 +2,15 @@ import { createContext, useState } from "react";
 
 export const ModeContext = createContext();
 
-export const ModeProvider = ({ children }) => {
-    //Variable to store the mode state
-      const [mode, setMode] = useState("light");
-      //function to update the mode state
-      const handleModeChange = () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-    };
+export const ModeProvider = ({children}) => {
 
-    return (
-        <ModeContext.Provider value={{ mode, handleModeChange }}>
-            {children}
-        </ModeContext.Provider>
-    )
-};
-
+    const [mode, setMode] = useState('light');
+    const toggleMode = () =>{
+        setMode((prevMode) => prevMode === 'light' ? 'dark' : 'light');
+    }
+  return (
+    <ModeContext.Provider value={{mode, toggleMode}}>
+      {children}
+    </ModeContext.Provider>
+  );
+}
