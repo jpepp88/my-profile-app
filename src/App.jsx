@@ -9,14 +9,12 @@ import ProfileEditPage from "./pages/ProfileEditPage";
 import ProfileIndexPage from "./pages/ProfileIndexPage";
 import { useState, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { ModeContext } from "./context/ModeContext";
+import { useContext } from "react";
 
 const App = () => {
-  //Variable to store the mode state
-  const [mode, setMode] = useState("light");
-  //function to update the mode state
-  const handleModeChange = () => {
-    setMode(mode === "light" ? "dark" : "light");
-  };
+  
+  const { mode, handleModeChange } = useContext(ModeContext);
 
   return (
     <HashRouter>
