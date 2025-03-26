@@ -16,7 +16,6 @@
   text-align: center;
   width: 200px;
   box-shadow: var(--box-shadow);
-  height: 100%;
   margin: 0.75rem;
   &.is-entering {
     opacity: 0;
@@ -24,7 +23,7 @@
     animation: cardEnter 0.5s forwards; /* Apply the animation */  
   }
 
-  .profile-card_img {
+  .profile-card__image {
     width: 100%;
     padding-top: 100%;
     border-radius: 50%;
@@ -40,7 +39,7 @@
     left: 0;
     object-fit: cover;
   }
-  .profile-card_content{
+  .profile-card__content{
     p {
       margin: 0;
       color: var(--text-color);

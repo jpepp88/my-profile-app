@@ -20,6 +20,7 @@
     &:disabled{
       background-color: var(--button-hover-background-color);
       color: var(--button-hover-text-color);
+      cursor: not-allowed;
     }
   }
   input[type="text"],
@@ -70,6 +71,10 @@
     margin-top: 10px;
     text-align: center;
   }
+  p.profile-text, label, input{
+    color: var(--text-color)
+  }
+
 }
 @media screen and (max-width: var(--mobile)){ 
   .profile-form{
